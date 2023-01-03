@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Foxxy++</title>
+
+    <script type="text/javascript">
+      function clipboard(text) {
+      navigator.clipboard.writeText( text );
+      }
+    </script>
+
+
+    <style>
+
+	.title {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+	align-items: center;
+        font-size: 3vh;
+	text-align: center;
+	color: #9a100b;
+      }
+
+  .title img {
+    width: 5.5vw;
+    height: 9vh;
+  }
+
+	.info {
+	
+	text-align:center;
+	margin-left: 10vw;
+	margin-right: 10vw;
+  margin-top: 10vh;
+	justify-content: center;
+	font-size: 1.5vw;
+
+     }
+
+	.contain{
+	display: flex;
+	align-items:center;
+	justify-content: center;
+        margin-bottom: 30vh;
+	height: 40vh;
+       }
+
+       .left {
+           display: flex;
+            margin-left: auto;
+	    margin-right: auto;
+            width: 30vw;
+            height: 30vh;
+            text-align: center;
+	    font-size: 1.25vw;        
+	}
+
+        .right{
+            display: flex;
+	    margin-right: auto;
+ 	    margin-left: auto;
+       margin-top: 35vh;
+             width: 30vw;
+             height: 65vh;
+
+             overflow-x: hidden;
+             overflow-y: scroll;
+             white-space:pre-wrap;
+            }
+
+
+
+
+    </style>
+  </head>
+
+  <body>
+
+<div class="title">
+<img src="{{url_for('static', filename='logo.png')}}">
+  <h1>
+    Foxxy++
+</h1>
+</div>
+
+
+<p class="info">
+
+This is an implentation of the Saleforce Codegen model availiable on huggingface.
+ It has a selection of models for different computer strengths.
+ It is not an end all solution. Large models will take longer to run and could strain your computer's hard drive/SSD, 
+ but will be more accurate. Small models will be faster but might not be as accurate. 
+
+ </p>
+
+<br></br>
+
+<div class ="contain">
+
+<div class ="left">
+
+<form method="post" action="/">
+
+<h3>Select Model to Load. Make sure to load before prompting.</h3>
+<h5>Model Status: {{ model_status }} </h5>
+<h5>Current Model: {{ model_name }} </h5>
+
+<select name="selection">
+    <option value="350M">350M</option>
+    <option value="2B">2B</option>
+    <option value="6B">6B</option>
+</select>
+
+<input type="submit" value="Load" name="loadbutton">
+
+<br></br>
+
+<label for="max tokens">Max tokens:</label>
+<input type="text" value={{ max_tokens }} name="max tokens" >
+  
+
+<textarea name="input python" rows="15" cols="60">
+  {{ text_area_text }}  
+</textarea>
+
+  <input type="submit" value="Submit" name="submitbutton">
+
+  </form>
+
+</div>
+
+<div class = "right">
+
+<div>
+<h3> {{ output_text }} </h3>
+</div>
+<br>
+
+<div>
+<button onclick="clipboard( '{{ output_text }}' )" > Copy </button>
+</div>
+<br>
+
+</div>
+
+</div>
+
+<br>
+
+
+<div class = "info">
+
+<h4>Prompting Tips</h4>
+
+<p>It is best to start prompts with "this is a function that..." rather than "write a function that..."</p>
+
+<p>The 350M and 2B models will struggle with anything more than a simple task. For complex code generation, try the 6B model size.</p>
+
+<p>It also helps to be specific with the return statement. Maybe even write the method signature yourself, so the model can autofill better</p>
+
+<p>Prompting is the hardest part of getting good code generation from these models. Look online for more in depth prompting examples</p>
+</div>
+
+
+</body>
+
+</html>
+
