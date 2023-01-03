@@ -13,9 +13,13 @@ First install CUDA 11.6 or greater first, and get the correct pytorch from your 
 Then install the requirements in requirements.txt with pip.
 
 Next, you will need to go to the model's page on huggingface to download them, since they are too big for github. Here are the links:
+
 350M: https://huggingface.co/Salesforce/codegen-350M-nl/tree/main
+
 2B: https://huggingface.co/Salesforce/codegen-2B-multi/tree/main
+
 6B: https://huggingface.co/Salesforce/codegen-6B-multi/tree/main
+
 Rememeber to put the contents in the folders, not the folder you downloaded. 
 
 Finally, just run the python file and go the the url outputted.
