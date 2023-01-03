@@ -9,8 +9,8 @@ Currently, the 350 million, 2 billion and 6 billion models are supported. They a
 It is not an end all solution. Large models will take longer to run and could strain your computer's hard drive/SSD, but will be more accurate. Small models will be faster but might not be as accurate. 
 
 ## Installation
-First install CUDA 11.6 or greater first, and get the correct pytorch from your system.
-Then install the requirements in requirements.txt with pip.
+First install CUDA 11.6 or greater first, and get the correct pytorch for your system.
+Then install the requirements in requirements.txt with pip -r requirements.txt
 
 Next, you will need to go to the model's page on huggingface to download them, since they are too big for github. Here are the links:
 
