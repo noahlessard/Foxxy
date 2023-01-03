@@ -1,3 +1,8 @@
 # Foxxy
 
-An implementation of the CodeGen LLM that converts python code to C++. Currently designed to run on both Mac M1 chips and Nvida, but Mac M1 will require additional setup.
+A easy to use web GUI that allows you to play with the codegen models, even if you don't have a huge amount of memory. Needs Cuda and accelerate. 
+
+Currently, the 350 million, 2 billion and 6 billion models are supported. They are loaded by utilizing the automatic device mapping provided by huggingface's transformers. 
+
+It is not an end all solution. Large models will take longer to run and could strain your computer's hard drive/SSD, but will be more accurate. Small models will be faster but might not be as accurate. 
+
